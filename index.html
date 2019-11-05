@@ -2,10 +2,49 @@
 <html>
 <head>
 <meta charset="utf-8">
+<script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
 <title>nodeweb</title>
+<style>
+.somebutton{
+    width: 100%;
+    height: 100px;
+}
+#data{
+    width: 400px;
+    height: 600px;
+}
+button{
+    width: 100px;
+    height: 40px;
+    display: block;
+}
+</style>
 </head>
 <body>
     <h1>我的第一个标题</h1>
     <p>我的第一个段落。</p>
+    <div class="somebutton">
+        <button type="button" onclick="finddata2();">查询数据</button>
+    </div>
+    <div id="data">
+
+    </div>
 </body>
+<script src="./sqltest.js"></script>
+<script>
+    function finddata2() {
+    var sql = 'SELECT * FROM websites';
+    //查
+    connection.query(sql, function (err, result) {
+        if (err) {
+            console.log('[SELECT ERROR] - ', err.message);
+            return;
+        }
+
+        $("#data").append('--------------------------SELECT----------------------------');
+        $("#data").append(result);
+        $("#data").append('------------------------------------------------------------\n\n');
+    });
+}
+</script>
 </html>

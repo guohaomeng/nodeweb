@@ -15,8 +15,9 @@ connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
     console.log('The solution is: ', results[0].solution);
 });
 
+    finddata();
 
-    function find() {
+    function finddata() {
     var sql = 'SELECT * FROM websites';
     //查
     connection.query(sql, function (err, result) {

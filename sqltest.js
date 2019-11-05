@@ -1,3 +1,6 @@
+var jsdom = require("jsdom");  
+var window = jsdom.jsdom().defaultView;  
+var $ = require('jquery')(window);
 var mysql = require('mysql');
 var connection = mysql.createConnection({
     host: 'localhost',
